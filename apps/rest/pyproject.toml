@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "rest"
+version = "0.1.0"
+description = ""
+authors = ["Roman505050 <myhun59@gmail.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.8"
+infrastructure = {path = "../../packages/infrastructure", develop = true}
+uvicorn = "^0.34.0"
+
+[tool.poetry.group.lint.dependencies]
+mypy = "^1.15.0"
+flake8 = "^7.1.1"
+
+[tool.poetry.group.format.dependencies]
+black = "^25.1.0"
+isort = "^6.0.0"
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+explicit_package_bases = true
+check_untyped_defs = true
+follow_untyped_imports = true
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+include_trailing_comma = true
+lines_after_imports = 2
+line_length = 79
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
